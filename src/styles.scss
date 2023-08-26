@@ -114,6 +114,16 @@
     right: 5%;
   }
 
+  &--up {
+    transform: translateY(-20px);
+
+    &::before {
+      top: unset !important;
+      transform: rotate(180deg);
+      bottom: -10px;
+    }
+  }
+
   &__list {
     color: #333;
     font-size: 0.75rem;

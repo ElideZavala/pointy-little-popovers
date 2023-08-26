@@ -17,6 +17,11 @@
   [cdkConnectedOverlayHasBackdrop]="true"
   (backdropClick)="menuShown = false"
   [cdkConnectedOverlayPositions]="menuPositions"
+  appPopoverPositionalClass
+  targetSelector=".menu-popover"
+  inverseClass="menu-popover--up"
+  [originY]="menuPopoverOrigin.originY"
+  (positionChange)="popoverPositionChanged($event, menuPopoverOrigin)"
   cdkConnectedOverlayPanelClass="menu-popover"
 >
   <div class="menu-popover__list">

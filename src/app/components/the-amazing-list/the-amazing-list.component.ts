@@ -8,6 +8,7 @@ import {
   OnInit,
   QueryList,
   ViewChildren,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { AppUserCard } from 'src/interfaces/app-user-card.interface';
 import { TheAmazingListItemComponent } from '../the-amazing-list-item/the-amazing-list-item.component';
@@ -42,13 +43,23 @@ export class TheAmazingListComponent implements OnInit, AfterViewInit {
       overlayY: 'bottom',
     },
   ];
+  menuPopoverOrigin = {
+    originY: null,
+  };
   private listKeyManager: FocusKeyManager<TheAmazingListItemComponent>;
 
   @HostListener('window:keydown', ['$event'])
   onKeydown(event) {
     this.listKeyManager.onKeydown(event);
   }
-  constructor() {}
+  constructor(private cdRef: ChangeDetectorRef) {}
+
+  popoverPositionChanged($event, popover) {
+    if (popover.originY !== $event.connectionPair.originY) {
+      this.menuPopoverOrigin.originY = $event.connectionPair.originY;
+    }
+    this.cdRef.detectChanges();
+  }
 
   ngOnInit(): void {}
 
