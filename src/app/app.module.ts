@@ -10,6 +10,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TheAmazingListItemComponent } from './components/the-amazing-list-item/the-amazing-list-item.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { PopoverPositionalClassDirective } from './directives/popover-positional-class.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     TheAmazingListComponent,
     LoaderComponent,
     TheAmazingListItemComponent,
+    PopoverPositionalClassDirective,
   ],
   imports: [
     BrowserModule,
